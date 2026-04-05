@@ -1,69 +1,34 @@
-import React from "react";
-
 const pizzas = [
   {
     name: "Margherita",
-    price: "₹199",
-    img: "https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg"
+    price: 199,
+    image: "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3",
   },
   {
     name: "Pepperoni",
-    price: "₹299",
-    img: "https://images.pexels.com/photos/2619967/pexels-photo-2619967.jpeg"
+    price: 299,
+    image: "https://images.unsplash.com/photo-1628840042765-356cda07504e",
   },
   {
-    name: "Veggie Delight",
-    price: "₹249",
-    img: "https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg"
-  }
+    name: "Veg Delight",
+    price: 249,
+    image: "https://images.unsplash.com/photo-1594007654729-407eedc4be65",
+  },
 ];
 
 function Menu({ addToCart }) {
   return (
-    <div style={{ padding: "50px" }}>
-      <h2 style={{ marginBottom: "30px" }}>Our Menu</h2>
-
-      <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+    <div className="menu">
+      <h2>Our Menu</h2>
+      <div className="menu-container">
         {pizzas.map((pizza, index) => (
-          <div
-            key={index}
-            style={{
-              width: "250px",
-              background: "white",
-              borderRadius: "12px",
-              boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-              overflow: "hidden"
-            }}
-          >
-            <img
-              src={pizza.img}
-              alt={pizza.name}
-              style={{
-                width: "100%",
-                height: "160px",
-                objectFit: "cover"
-              }}
-            />
-
-            <div style={{ padding: "15px" }}>
-              <h3>{pizza.name}</h3>
-              <p>{pizza.price}</p>
-
-              <button
-                onClick={() => addToCart(pizza)}
-                style={{
-                  backgroundColor: "#EE3124",
-                  color: "white",
-                  border: "none",
-                  padding: "8px 12px",
-                  cursor: "pointer",
-                  marginTop: "10px",
-                  borderRadius: "6px"
-                }}
-              >
-                Add to Cart
-              </button>
-            </div>
+          <div className="card" key={index}>
+            <img src={pizza.image} alt={pizza.name} />
+            <h3>{pizza.name}</h3>
+            <p>₹{pizza.price}</p>
+            <button onClick={() => addToCart(pizza)}>
+              Add to Cart
+            </button>
           </div>
         ))}
       </div>

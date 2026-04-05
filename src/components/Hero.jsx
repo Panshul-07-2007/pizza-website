@@ -1,52 +1,22 @@
 import React from "react";
 
-function Hero() {
+const Hero = () => {
   return (
-    <div style={{ display: "flex", alignItems: "center", padding: "60px", gap: "40px" }}>
-      
-      {/* LEFT */}
-      <div style={{ flex: 1 }}>
-        <h1 style={{ fontSize: "42px", marginBottom: "20px" }}>
-          Hot. Fresh. Delivered in Minutes.
-        </h1>
-
-        <p style={{ fontSize: "18px", color: "#555", marginBottom: "20px" }}>
-          Your favorite pizzas at your doorstep. Made by PANSHUL
-        </p>
-
-        <button style={{
-          backgroundColor: "#EE3124",
-          color: "white",
-          padding: "12px 20px",
-          border: "none",
-          marginRight: "10px",
-          cursor: "pointer"
-        }}>
-          Order Now
-        </button>
-
-        <button style={{
-          padding: "12px 20px",
-          border: "2px solid #EE3124",
-          background: "white",
-          color: "#EE3124",
-          cursor: "pointer"
-        }}>
-          View Deals
-        </button>
+    <section className="hero">
+      <div className="hero-text">
+        <h1>Hot & Fresh Pizza 🍕</h1>
+        <p>Delivered in 30 minutes or less</p>
+        <button>Order Now</button>
       </div>
 
-      {/* RIGHT */}
-      <div style={{ flex: 1 }}>
+      <div className="hero-image">
         <img
-          src="https://images.unsplash.com/photo-1594007654729-407eedc4be65"
+          src="https://images.unsplash.com/photo-1601924582975-7e4e64c6b9b8"
           alt="pizza"
-          style={{ width: "100%", borderRadius: "12px" }}
         />
       </div>
-
-    </div>
+    </section>
   );
-}
+};
 
 export default Hero;

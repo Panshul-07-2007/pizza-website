@@ -1,21 +1,23 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Menu from "./components/Menu";
+import Cart from "./components/Cart";
 import Footer from "./components/Footer";
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
+  const [cart, setCart] = useState([]);
 
-  const addToCart = (pizza) => {
-    setCartItems([...cartItems, pizza]);
+  const addToCart = (item) => {
+    setCart([...cart, item]);
   };
 
   return (
     <>
-      <Navbar cartCount={cartItems.length} />
+      <Navbar />
       <Hero />
       <Menu addToCart={addToCart} />
+      <Cart cart={cart} />
       <Footer />
     </>
   );
