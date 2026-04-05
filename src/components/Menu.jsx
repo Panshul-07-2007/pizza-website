@@ -1,49 +1,36 @@
-import { useState } from "react";
+import React from "react";
 
-const pizzas = [
-  {
-    name: "Margherita",
-    price: 199,
-    image: "https://images.unsplash.com/photo-1601924582975-7e3e6fcd1e9b"
-  },
-  {
-    name: "Pepperoni",
-    price: 299,
-    image: "https://images.unsplash.com/photo-1603079840783-8b9b2b1c8b0c"
-  },
-  {
-    name: "Veggie Delight",
-    price: 249,
-    image: "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e"
-  }
-];
-
-function Menu() {
-  const [cart, setCart] = useState([]);
-
-  const addToCart = (pizza) => {
-    setCart([...cart, pizza]);
-    alert(pizza.name + " added!");
-  };
+const Menu = () => {
+  const pizzas = [
+    {
+      name: "Margherita",
+      price: 199,
+      img: "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e",
+    },
+    {
+      name: "Pepperoni",
+      price: 299,
+      img: "https://images.unsplash.com/photo-1628840042765-356cda07504e",
+    },
+    {
+      name: "Veg Delight",
+      price: 249,
+      img: "https://images.unsplash.com/photo-1548365328-9f547fb0953c",
+    },
+  ];
 
   return (
     <div className="menu">
-      <h2>Menu</h2>
-
-      <div className="menu-grid">
-        {pizzas.map((pizza, index) => (
-          <div key={index} className="card">
-            <img src={pizza.image} alt={pizza.name} />
-            <h3>{pizza.name}</h3>
-            <p>₹{pizza.price}</p>
-            <button onClick={() => addToCart(pizza)}>
-              Add to Cart
-            </button>
-          </div>
-        ))}
-      </div>
+      {pizzas.map((pizza, index) => (
+        <div className="card" key={index}>
+          <img src={pizza.img} alt={pizza.name} />
+          <h3>{pizza.name}</h3>
+          <p>₹{pizza.price}</p>
+          <button>Add to Cart</button>
+        </div>
+      ))}
     </div>
   );
-}
+};
 
 export default Menu;
