@@ -1,28 +1,38 @@
+import { useState } from "react";
+
 const pizzas = [
   {
     name: "Margherita",
     price: 199,
-    image: "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3",
+    image: "https://images.unsplash.com/photo-1601924582975-7e3e6fcd1e9b"
   },
   {
     name: "Pepperoni",
     price: 299,
-    image: "https://images.unsplash.com/photo-1628840042765-356cda07504e",
+    image: "https://images.unsplash.com/photo-1603079840783-8b9b2b1c8b0c"
   },
   {
-    name: "Veg Delight",
+    name: "Veggie Delight",
     price: 249,
-    image: "https://images.unsplash.com/photo-1594007654729-407eedc4be65",
-  },
+    image: "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e"
+  }
 ];
 
-function Menu({ addToCart }) {
+function Menu() {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (pizza) => {
+    setCart([...cart, pizza]);
+    alert(pizza.name + " added!");
+  };
+
   return (
     <div className="menu">
-      <h2>Our Menu</h2>
-      <div className="menu-container">
+      <h2>Menu</h2>
+
+      <div className="menu-grid">
         {pizzas.map((pizza, index) => (
-          <div className="card" key={index}>
+          <div key={index} className="card">
             <img src={pizza.image} alt={pizza.name} />
             <h3>{pizza.name}</h3>
             <p>₹{pizza.price}</p>

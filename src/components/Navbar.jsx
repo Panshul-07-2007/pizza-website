@@ -1,17 +1,16 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+function Navbar() {
   return (
     <nav className="navbar">
-      <h2 className="logo">PizzaHub 🍕</h2>
+      <h1>🍕 Pizza Hut</h1>
 
-      <ul className="nav-links">
-        <li>Menu</li>
-        <li>Deals</li>
-        <li>Cart 🛒</li>
-      </ul>
+      <div>
+        <Link to="/">Home</Link>
+        <Link to="/cart">Cart</Link>
+      </div>
     </nav>
   );
-};
+}
 
 export default Navbar;
